@@ -11,3 +11,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+alias vim="nvim"
+
+case `uname` in
+	Darwin)
+		source $HOME/opt/anaconda3/etc/profile.d/conda.sh
+		;;
+	Linux)
+		;;
+esac
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
