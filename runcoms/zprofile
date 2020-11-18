@@ -44,7 +44,8 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
-  $home/bin
+  $HOME/bin
+  $HOME/.local/bin
   $path
 )
 
@@ -63,7 +64,19 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
+# GO HOME
+
+export GOROOT=$HOME/.local/go
+export PATH=$GOROOT/bin:$PATH
+
+# CARGO HOME
+
+export CARGO_HOME=$HOME/.local/cargo
+export RUSTUP_HOME=$HOME/.local/rustup
+export PATH=$HOME/.local/cargo/bin:$PATH
+
 # FZF
 
 export FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
