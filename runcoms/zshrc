@@ -13,6 +13,8 @@ fi
 # Customize to your needs...
 
 alias vim="nvim"
+alias python="python3"
+alias pip="pip3"
 
 case `uname` in
 	Darwin)
